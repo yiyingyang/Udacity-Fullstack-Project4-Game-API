@@ -119,7 +119,7 @@ path parameter `urlsafe_game_key`.
  - **NewGameForm**
     - Used to create a new game (user_name, player_form)
  - **UserForm*
- 	- Representation of a User's record(user_name, win_ratio, games, wins, loses,
+* 	- Representation of a User's record(user_name, win_ratio, games, wins, loses,
  	draws)
  - **RankForm**
     - Representation of a User's ranking record (user_name, win_ratio)
