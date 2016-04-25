@@ -1,0 +1,29 @@
+1. What additional properties did you add to your models and why?
+
+  - **User**
+ 	- Added Property: wins, loses, draws, number of games, win_ratio
+ 		- To keep a better record of the user and to generate ranking board 
+ 		together with top-ten player
+ 	- Added Method: to_form, to_rank_form
+ 		- To generate the user form and ranking form for queries.
+  - **Game**
+ 	- Added Property: player_choice, result
+ 		- To get the user's choice and generate result
+  - **RankForm**
+ 	- Added Property: user_name, win_ratio
+ 		- To to generate ranking board together with top-ten player
+
+2. What were some of the trade-offs or struggles you faced when implementing
+ the new game logic?
+ 
+  **Memcache the top ten board** **Get the user rankings**
+  The skeleton of Guess-a Number really contributed a lot in building my own
+  application. The logic itself is fairly simple. The first point that I did
+  spend time pondering over is how to keep a record of user's performance. I
+  decided to add more property to the User class and update the win_ratio every
+  time a game if finished. The logic of keeping the whole list of user ranking
+  is different from keeping the top-ten board. I took advantage a heap and 
+  memcache to update the top-ten board. The taskqueue was also used to take care
+  of the updating. However, the user ranking was generated every time while
+  calling from end point, since it does not always happen when a user want to
+  see the whole list.
